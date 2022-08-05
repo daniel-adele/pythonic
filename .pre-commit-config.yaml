@@ -1,6 +1,24 @@
 ---
 repos:
   - hooks:
+      - id: trailing-whitespace
+        stages: [commit]
+      - id: check-ast
+        stages: [commit]
+      - id: check-merge-conflict
+        stages: [commit]
+      - id: debug-statements
+        stages: [commit]
+      - id: end-of-file-fixer
+        stages: [commit]
+      - args: [ '--fix=no' ]
+        id: mixed-line-ending
+        stages: [commit]
+    repo: https://github.com/pre-commit/pre-commit-hooks.git
+    rev: v3.2.0
+
+
+  - hooks:
       - id: black
         stages: [commit]
         language_version: python3.10
